@@ -54,7 +54,7 @@ export function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto border-t border-divider mt-8 pt-6 text-center text-xs text-default-400">
-        &copy; {new Date().getFullYear()} BookNook. All rights reserved. Built with passion for readers.
+        &copy; 2026 BookNook. All rights reserved. Built with passion for readers.
       </div>
     </footer>
   );
