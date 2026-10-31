@@ -25,9 +25,9 @@ export default function BookCard({ book }: { book: Book }) {
         <h3 className="line-clamp-1 text-lg font-semibold text-gray-900 dark:text-white">
           {book.title}
         </h3>
-        <p className="mt-1 line-clamp-1 text-sm text-gray-600 dark:text-gray-400">
-          by {book.author}
-        </p>
+        <p className="mt-1 mb-4 line-clamp-1 text-sm text-gray-600 dark:text-gray-400">
+  by {book.author}
+</p>
 
         <Link
           href={`/books/${book._id}`}
