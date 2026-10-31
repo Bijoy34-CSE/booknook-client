@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useSession, signOut } from "@/lib/auth-client";
+import { clearToken } from "@/lib/api";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const publicLinks = [
   { label: "Home", href: "/" },
@@ -56,6 +58,7 @@ export function Navbar() {
 
   const handleLogout = async () => {
     await signOut();
+    clearToken();
     setDropdownOpen(false);
     router.push("/");
     router.refresh();
@@ -94,6 +97,8 @@ export function Navbar() {
 
         {/* Right side */}
         <div className="flex items-center gap-3">
+          <ThemeToggle />
+
           {isPending ? (
             <div className="h-9 w-9 animate-pulse rounded-full bg-gray-200 dark:bg-gray-700" />
           ) : user ? (
