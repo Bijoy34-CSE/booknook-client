@@ -4,7 +4,6 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useSession, signOut } from "@/lib/auth-client";
-import { clearToken } from "@/lib/api";
 
 const publicLinks = [
   { label: "Home", href: "/" },
@@ -57,7 +56,6 @@ export function Navbar() {
 
   const handleLogout = async () => {
     await signOut();
-    clearToken();
     setDropdownOpen(false);
     router.push("/");
     router.refresh();
