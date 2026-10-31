@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { useSession } from "@/lib/auth-client";
 import { api } from "@/lib/api";
+import { uploadToImgbb } from "@/lib/imgbb";
 import { CATEGORIES, type Book } from "@/lib/types";
 
 const inputClass =
@@ -12,23 +13,6 @@ const inputClass =
 const readOnlyClass =
   "w-full cursor-not-allowed rounded-lg border border-gray-200 bg-gray-100 px-4 py-2.5 text-sm text-gray-500 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400";
 const labelClass = "mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300";
-
-async function uploadToImgbb(file: File): Promise<string> {
-  const key = process.env.NEXT_PUBLIC_IMGBB_KEY;
-  if (!key) throw new Error("Image upload is not set up yet. Please add the imgbb key.");
-
-  const body = new FormData();
-  body.append("image", file);
-  const res = await fetch(`https://api.imgbb.com/1/upload?key=${key}`, {
-    method: "POST",
-    body,
-  });
-  const data = await res.json();
-  if (!res.ok || !data?.data?.display_url) {
-    throw new Error("Image upload failed. Please try another image.");
-  }
-  return data.data.display_url as string;
-}
 
 export default function AddBookPage() {
   const router = useRouter();
