@@ -1,9 +1,13 @@
 import HeroSlider from "@/components/home/HeroSlider";
+import HowItWorks from "@/components/home/HowItWorks";
+import TopCategories from "@/components/home/TopCategories";
 
 export default function HomePage() {
   return (
-    <main>
+    <div>
       <HeroSlider />
-    </main>
+      <TopCategories />
+      <HowItWorks />
+    </div>
   );
 }

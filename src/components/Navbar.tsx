@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useSession, signOut } from "@/lib/auth-client";
+import { clearToken } from "@/lib/api";
 
 const publicLinks = [
   { label: "Home", href: "/" },
@@ -24,6 +25,7 @@ export function Navbar() {
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [imgError, setImgError] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const links = user ? [...publicLinks, ...privateLinks] : publicLinks;
@@ -45,11 +47,17 @@ export function Navbar() {
     setDropdownOpen(false);
   }, [pathname]);
 
+  // Try the photo again if the user (or their photo) changes
+  useEffect(() => {
+    setImgError(false);
+  }, [user?.image]);
+
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   const handleLogout = async () => {
     await signOut();
+    clearToken();
     setDropdownOpen(false);
     router.push("/");
     router.refresh();
@@ -97,12 +105,13 @@ export function Navbar() {
                 className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border-2 border-indigo-600 bg-indigo-100 text-sm font-bold text-indigo-700"
                 aria-label="Open user menu"
               >
-                {user.image ? (
+                {user.image && !imgError ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={user.image}
                     alt={user.name ?? "User"}
                     className="h-full w-full object-cover"
+                    onError={() => setImgError(true)}
                   />
                 ) : (
                   (user.name?.[0] ?? "U").toUpperCase()
