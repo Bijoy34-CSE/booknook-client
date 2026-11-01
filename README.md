@@ -8,6 +8,20 @@
 
 BookNook lets readers see all books, share their own, borrow a book for a week, and return it when they are done.
 
+## Demo Account
+
+Use this ready-made account to explore the app without registering:
+
+| Field    | Value               |
+| -------- | ------------------- |
+| Name     | `Demo Reader`       |
+| Email    | `demo@booknook.com` |
+| Password | `Demo1234`          |
+| Photo    | `https://i.pravatar.cc/150?img=12` |
+
+To sign in, open the Login page and enter the email and password above.
+You can also register your own account, or continue with Google.
+
 ## Features
 
 - **Home page slider and new arrivals:** a Swiper.js banner with three slides, plus the six newest books loaded from the database
