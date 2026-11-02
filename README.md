@@ -2,7 +2,7 @@
 
 **A small online library. Add a book, borrow a book, return a book.**
 
-**Live site:** https://your-live-site.vercel.app
+**Live site:** https://booknook-client-nine.vercel.app/
 
 **Server repository:** https://github.com/Bijoy34-CSE/booknook-server
 
