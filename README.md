@@ -12,19 +12,20 @@ BookNook lets readers see all books, share their own, borrow a book for a week, 
 
 Use this ready-made account to explore the app without registering:
 
-| Field    | Value               |
-| -------- | ------------------- |
-| Name     | `Demo Reader`       |
-| Email    | `demo@booknook.com` |
-| Password | `Demo1234`          |
+| Field    | Value                              |
+| -------- | ---------------------------------- |
+| Name     | `Demo Reader`                      |
+| Email    | `demo@booknook.com`                |
+| Password | `Demo1234`                         |
 | Photo    | `https://i.pravatar.cc/150?img=12` |
 
-To sign in, open the Login page and enter the email and password above.
+The name and photo are only needed if you register the account yourself. To sign in, open the Login page and enter the email and password above.
 You can also register your own account, or continue with Google.
 
 ## Features
 
 - **Home page slider and new arrivals:** a Swiper.js banner with three slides, plus the six newest books loaded from the database
+- **Extra home sections:** a "BookNook at a Glance" stats section and an FAQ with expandable answers
 - **Secure login:** email and password sign up with password rules (uppercase, lowercase, at least 6 characters) and Google sign in, built with BetterAuth and MongoDB
 - **Private routes:** Add Book, My Books, My Borrows, Book Details and Profile need a login, and you come back to the page you wanted after logging in
 - **Add, edit and delete books:** book images are uploaded to imgbb, edit opens a pre-filled form, and delete asks for confirmation in a modal
@@ -57,7 +58,6 @@ You can also register your own account, or continue with Google.
    MONGODB_URI=
    BETTER_AUTH_SECRET=
    BETTER_AUTH_URL=http://localhost:3000
-   NEXT_PUBLIC_APP_URL=http://localhost:3000
    NEXT_PUBLIC_API_URL=http://localhost:5000
    NEXT_PUBLIC_IMGBB_KEY=
    JWT_SECRET=
