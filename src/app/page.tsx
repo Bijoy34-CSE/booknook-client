@@ -1,15 +1,15 @@
 import HeroSlider from "@/components/home/HeroSlider";
 import NewArrivals from "@/components/home/NewArrivals";
-import TopCategories from "@/components/home/TopCategories";
-import HowItWorks from "@/components/home/HowItWorks";
+import LibraryStats from "@/components/home/LibraryStats";
+import Faq from "@/components/home/Faq";
 
 export default function HomePage() {
   return (
     <div>
       <HeroSlider />
       <NewArrivals />
-      <TopCategories />
-      <HowItWorks />
+      <LibraryStats />
+      <Faq />
     </div>
   );
 }
