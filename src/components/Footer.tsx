@@ -24,6 +24,34 @@ const socials = [
   },
 ];
 
+// Simple line icons for the contact list
+const contacts = [
+  {
+    label: "123 Library Street, Bookville",
+    icon: (
+      <>
+        <path d="M12 21s-7-5.686-7-11a7 7 0 1 1 14 0c0 5.314-7 11-7 11z" />
+        <circle cx="12" cy="10" r="2.5" />
+      </>
+    ),
+  },
+  {
+    label: "support@booknook.dev",
+    icon: (
+      <>
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 7 9 6 9-6" />
+      </>
+    ),
+  },
+  {
+    label: "+880 1234-567890",
+    icon: (
+      <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+    ),
+  },
+];
+
 export function Footer() {
   const { data: session } = useSession();
 
@@ -77,10 +105,24 @@ export function Footer() {
           <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
             Contact Info
           </h3>
-          <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-            <li>📍 123 Library Street, Bookville</li>
-            <li>📧 support@booknook.dev</li>
-            <li>📞 +880 1234-567890</li>
+          <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+            {contacts.map((c) => (
+              <li key={c.label} className="flex items-start gap-2.5">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600 dark:text-indigo-400"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  {c.icon}
+                </svg>
+                <span>{c.label}</span>
+              </li>
+            ))}
           </ul>
         </div>
 
